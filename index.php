@@ -2,12 +2,15 @@
 
 require_once('lib/Database.php');
 require_once('models/Students.php');
+require_once('models/CSM.php');
+require_once('models/CSMB.php');
 
 $db = new Database();
 $allStudents = Students::getAllStudents($db);
 
 if(isset($_GET['student'])) {
-    Students::calculateGrade($db, $_GET['student']);
+
+    Students::report($db, $_GET['student']);
 }
 
 ?>
