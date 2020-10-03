@@ -1,8 +1,14 @@
 <?php
 
 require_once('lib/Database.php');
+require_once('models/Students.php');
 
 $db = new Database();
+$allStudents = Students::getAllStudents($db);
+
+if(isset($_GET['student'])) {
+    Students::calculateGrade($db, $_GET['student']);
+}
 
 ?>
 
@@ -27,10 +33,39 @@ $db = new Database();
         <hr>
 
         <div class="row">
+            <div class="col-12"><h3>Students</h3></div> <div class="clearfix"></div>
             
+            
+            
+        </div>
+        
+        <div class="row">
+                <div class="row col-12">
+                    <div class="col-3">Student ID</div>
+                    <div class="col-3">Student name</div>
+                    <div class="col-3">Student school</div>
+                    <div class="col-3">Action</div>
+                </div>
+                <div class="clearfix"></div>
+                <?php 
+                
+                foreach($allStudents as $student) {
+                    ?>
+                <div class="row col-12 mt-1">
+                    <div class="col-3"><?php echo $student['ID']; ?></div>
+                    <div class="col-3"><?php echo $student['studentName']; ?></div>
+                    <div class="col-3"><?php echo $student['schoolName']; ?></div>
+                    <div class="col-3"><a target='_blank' href='index.php?student=<?php echo $student['ID']; ?>' class='btn btn-primary'>Show report</a></div>
+                </div>
+
+                    <?php
+                }
+                
+                ?> 
         </div>
     </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+<script src="js/SchoolBoard.js"></script>
 </body>
 </html>
