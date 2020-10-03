@@ -14,3 +14,5 @@ or whatever port you want.
 Import Database.sql file in your mysql server.
 
 Change config file for your MySQL config (server, username, password, dbname if you change it)
+
+Make sure you are using latest version of php (7.3+)

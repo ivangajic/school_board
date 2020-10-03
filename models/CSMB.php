@@ -18,9 +18,9 @@ class CSMB {
         $pass = false;
        
         if(count($gArray) > 2){
-            $tmpArr = array_shift($gArray);
-
-            if($tmpArr[count($tmpArr) - 1] > 8) {
+            array_shift($gArray);
+            var_dump($gArray);
+            if($gArray[count($gArray) - 1] > 8) {
                 $pass = true;
             }
             //$avg = array_sum($tmpArr) / count($tmpArr);
@@ -53,6 +53,7 @@ class CSMB {
        
         header('Content-type: text/xml');
         echo $xml->asXML();
+        die();
         
     }
 }
