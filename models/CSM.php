@@ -9,7 +9,6 @@ class CSM {
         $grades = $gradesSth->fetchAll();
         $gArray = [];
         foreach($grades as $grade){
-           // echo $grade['studentGrade'] ;
            array_push($gArray, $grade['studentGrade']);
         }
         

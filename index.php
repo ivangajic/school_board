@@ -43,7 +43,7 @@ $schools = Students::getSchools($db); // should use separate class for this
             if(isset($_GET['success'])) {
 
                 ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="alert alert-success alert-dismissible fade show col-12" role="alert">
                 <strong>Success!</strong> Student added successfully!
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -65,6 +65,7 @@ $schools = Students::getSchools($db); // should use separate class for this
                     <div class="col-3">Student school</div>
                     <div class="col-3">Action</div>
                 </div>
+                <hr>
                 <div class="clearfix"></div>
                 <?php 
                 
@@ -96,11 +97,11 @@ $schools = Students::getSchools($db); // should use separate class for this
             </div>
             <div class="modal-body">
             <div class="form-group">
-                <label for="studentName">Student name</label>
+                <label for="studentName">Student name *</label>
                 <input type="text" class="form-control" id="studentName" name='studentName' placeholder="Enter student name" required>
             </div>
             <div class="form-group">
-                <label for="studentSchool">Student school</label>
+                <label for="studentSchool">Student school *</label>
                 <select class="form-control" id="studentSchool" name='studentSchool' required>
                     <?php
                     foreach($schools as $school){
@@ -112,7 +113,7 @@ $schools = Students::getSchools($db); // should use separate class for this
 
             <div class="form-group">
                 <label for="grades">Grades</label>
-                <input type="text" class="form-control mt-1" name='grades[]' required>
+                <input type="text" class="form-control mt-1" name='grades[]' required placeholder="Required grade">
                 <input type="text" class="form-control mt-1" name='grades[]' >
                 <input type="text" class="form-control mt-1" name='grades[]' >
                 <input type="text" class="form-control mt-1" name='grades[]' >

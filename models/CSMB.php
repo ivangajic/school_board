@@ -19,7 +19,7 @@ class CSMB {
        
         if(count($gArray) > 2){
             array_shift($gArray);
-            var_dump($gArray);
+            
             if($gArray[count($gArray) - 1] > 8) {
                 $pass = true;
             }
@@ -30,14 +30,6 @@ class CSMB {
             }
         }
 
-        $returnObj = new \stdClass;
-
-        $returnObj->studentID = $student->ID; 
-        $returnObj->studentName = $student->studentName; 
-        $returnObj->schoolName = $student->schoolName; 
-        $returnObj->average = round($avg, 2); 
-        $returnObj->grades = $gArray;
-        $returnObj->passed = $pass;
 
         $xml_header = '<?xml version="1.0" encoding="UTF-8"?><Student></Student>';
         $xml = new SimpleXMLElement($xml_header);
