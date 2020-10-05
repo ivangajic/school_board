@@ -1,4 +1,4 @@
-# Foobar
+# School board
 
 School Board is web application for keeping track of students and grades
 
